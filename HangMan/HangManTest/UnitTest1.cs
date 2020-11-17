@@ -1,41 +1,50 @@
-﻿using System;
+﻿using HangMan;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HangMan;
 
 namespace HangManTest
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestHangmanGuess()
+        [DataTestMethod]
+        [DataRow("Secret", "______", "x")]
+        [DataRow("Secret", "__c___", "c")]
+        [DataRow("Secret", "S_c___", "cs")]
+        [DataRow("Secret", "Sec_e_", "cse")]
+        [DataRow("Secret", "Secre_", "cser")]
+        [DataRow("Secret", "Secret", "csert")]
+        public void TestHangmanGuess(string _secret, string _expected, string _keys)
         {
-            var man = new Hangman("Secret");
-            var guessed = man.Guess('c');
-            Assert.IsTrue(guessed == "__c___", "Firest guess correct");
+            var man = new Hangman(_secret);
+            
+            string guessed = "";
+            foreach (char c in _keys)
+            {
+                guessed = man.Guess(c);
+            }
 
-            guessed = man.Guess('s');
-            Assert.IsTrue(guessed == "S_c___", "Second guess correct");
+            Assert.IsTrue(guessed == _expected, "guess work correct");
         }
 
-        [TestMethod]
-        public void TestHangmanHang()
+        [DataTestMethod]
+        [DataRow("Secret", "s", 10, "")]
+        [DataRow("Secret", "sp", 9, "┴────")]
+        [DataRow("Secret", "sxx", 8, "│\n┴────")]
+        public void TestHangmanHang(string _secret, string _keys, int _expected, string _hang)
         {
-            var man = new Hangman("Secret");
-            var guessed = man.Guess('\n');
+            var man = new Hangman(_secret);
+
+            string guessed = "";
+            foreach (char c in _keys)
+            {
+                guessed = man.Guess(c);
+            }
+
             var tries = man.GetTries();
             var hang = man.GetHangman();
             
-            Assert.IsTrue(tries == 1, "Tries correct");
-            Assert.IsTrue(hang == "", "Hangman correct");
-            
-            guessed = man.Guess('p');
-            
-            tries = man.GetTries();
-            hang = man.GetHangman();
-            
-            Assert.IsTrue(tries == 2, "Tries correct");
-            Assert.IsTrue(hang == "┴────", "Hangman correct");
+            Assert.IsTrue(tries == _expected, "Tries correct");
+            Assert.IsTrue(hang == _hang, "Hangman correct");
         }
     }
 }

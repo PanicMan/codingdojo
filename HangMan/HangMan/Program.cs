@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HangMan
 {
     class Program
     {
         static void Main(string[] args)
-        { 
-            var hman = new Hangman("BigSecret");
-            var guessed = hman.Guess('\n');
+        {
+            string _secret = "BigSecret";
+            var hman = new Hangman(_secret);
+            var guessed = hman.GetGuessed();
             Console.WriteLine("Here the hint: " + guessed);
 
             while (true)
             {   
-                Console.Write("Guess a char: ");
+                Console.Write(String.Format("{0} tries left. Guess a char: ", hman.GetTries()));
                 var ret = Console.ReadKey();
                 Console.WriteLine("");
 
@@ -29,9 +25,10 @@ namespace HangMan
                 Console.Write(hang);
                 Console.WriteLine("");
 
-                if (hman.GetTries() == 11)
+                if (hman.GetTries() == 0)
                 {
                     Console.WriteLine("You looooooose!!!!");
+                    Console.WriteLine("The secret was: " + _secret);
                     break;
                 }
                 else if (guessed.IndexOf('_') == -1)
