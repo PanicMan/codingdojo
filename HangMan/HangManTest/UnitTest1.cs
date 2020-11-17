@@ -23,6 +23,7 @@ namespace HangManTest
                 guessed = man.Guess(c);
             }
 
+            guessed = man.GetGuessed();
             Assert.IsTrue(guessed == _expected, "guess work correct");
         }
 
