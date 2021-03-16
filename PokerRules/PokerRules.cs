@@ -7,7 +7,7 @@ namespace PokerRules
 {
     public static class PokerRules
     {
-        private static Random rnd = new Random();
+        private static Random rnd = new Random(DateTime.Now.Second);
 
         private static List<PokerCard> CreateSortedList(PokerHand hand, PokerCard[] CommCards)
         {
@@ -23,7 +23,6 @@ namespace PokerRules
             allCards.Reverse();
             return allCards;
         }
-
 
         public static void Shuffle<T>(this IList<T> list)
         {
@@ -160,8 +159,6 @@ namespace PokerRules
         {
             PokerCard retTopCard = new PokerCard(PokerCard.Cards.Undefined, PokerCard.Suits.Hearts);
             var allCards = CreateSortedList(hand, CommCards);
-
-            int counter = 0;
 
             List<PokerCard> countSpades     = new List<PokerCard>();
             List<PokerCard> countHearts     = new List<PokerCard>();
