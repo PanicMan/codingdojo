@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerRules", "PokerRules.csproj", "{65FCDCAB-846A-4A91-AC02-BE1B70DB61FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerRulesTest", ".\PokerRulesTest\PokerRulesTest.csproj", "{F98DB8DB-633C-4C5C-8F0C-7AC67A5F9B84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65FCDCAB-846A-4A91-AC02-BE1B70DB61FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65FCDCAB-846A-4A91-AC02-BE1B70DB61FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65FCDCAB-846A-4A91-AC02-BE1B70DB61FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65FCDCAB-846A-4A91-AC02-BE1B70DB61FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98DB8DB-633C-4C5C-8F0C-7AC67A5F9B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F98DB8DB-633C-4C5C-8F0C-7AC67A5F9B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F98DB8DB-633C-4C5C-8F0C-7AC67A5F9B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F98DB8DB-633C-4C5C-8F0C-7AC67A5F9B84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {227F24B1-085D-415F-828C-209273C30BE4}
+	EndGlobalSection
+EndGlobal
